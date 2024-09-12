@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="response"></p>
+    <p style="color: red;" id="error"></p>
+</body>
+<script>
+    async function main(){
+        try {
+            // This is the local IP and port used by the PHP server
+            /*
+                Name: PHP Server
+                Id: brapifra.phpserver
+                Description: Serve your Project with PHP
+                Version: 3.0.2
+                Publisher: brapifra
+                VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=brapifra.phpserver
+            */
+
+            // NOTE: You can not just do fetch(main.php), it needs to be hosted using the server on a different port.
+            var data = await fetch("http://localhost:3000/main.php");
+            var response = document.getElementById("response");
+            response.innerHTML = await data.text();
+        } catch (error) {
+            var pResult = document.getElementById("error");
+            pResult.innerHTML = error;
+        }
+    }
+    main();
+</script>
+</html>
