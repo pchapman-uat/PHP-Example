@@ -25,11 +25,48 @@ These are the extensions that need to be downloaded for this project to work.
 - VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug
 
 ### Settings
-Set the `settings.json` for VS Code to have the proper file paths. 
+
+There are two options to set the settings;
+1. Built in editing within VS Code
+2. Editing the VScode `settings.json` file. 
+
+#### Bult in
+Navigate to your extensions and click the settings for PHP server
+
+![](./extensions.png)
+
+Select Extension settings within the drop down.
+
+![](./extensions2.png)
+
+Within the settings change the PHP path to the path to the downloaded exe.
+
+![](./settings.png)
+
+Make sure to extract the zip from https://windows.php.net/download/ and then locate the `php.exe` file, copy the path of this file and place it in the settings.
+
+Example:
+
+`C:\path\to\your\php\exe\php.exe`
+
+Make sure that it ends with `php.exe`
+
+
+![](./php-exe.png)
+
+#### Settings JSON
+
+Run the following command:
+
+`f1` or `ctrl+shift+p` and type `open settings`, `select Open User Settings (JSON)`
+
+Adjust the JSON to match what is bellow
+
+Example:
 ```json
 {
-    "php.validate.executablePath": "C:\\Users\\PCHAPMAN82070\\Downloads\\php-8.3.11-nts-Win32-vs16-x64\\php.exe",
-    "phpserver.phpPath": "C:\\Users\\PCHAPMAN82070\\Downloads\\php-8.3.11-nts-Win32-vs16-x64\\php.exe",
-    "php.debug.executablePath": "C:\\Users\\PCHAPMAN82070\\Downloads\\php-8.3.11-nts-Win32-vs16-x64\\php.exe"
+    "php.validate.executablePath": "C:\\path\\to\\your\\php\\exe\\php.exe",
+    "phpserver.phpPath": "C:\\path\\to\\your\\php\\exe\\php.exe",
+    "php.debug.executablePath": "C:\\path\\to\\your\\php\\exe\\php.exe"
 }
 ```
